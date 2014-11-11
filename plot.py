@@ -24,6 +24,7 @@ if len(sys.argv) < 6:
 
 
 colors = ['y', 'g', 'r', 'c', 'm', 'b', 'k', 'w']
+markers = ['o', '+', '*', 'h', 's', 'D', 'p', 'w']
 width = 0.15       # the width of the bars
 
     
@@ -45,10 +46,25 @@ index = np.arange(len(bars[0]))  # the x locations for the groups
 print index            
 fig, ax = plt.subplots()
 rects = []
-for idx, bar in enumerate(bars[1:]):
-    rects.append(ax.bar(index+idx*width, bar, width, color=colors[idx]))
-    
 
+# x_offset for arrows when a plot is immediately zero
+x_offset = 40
+y_offset = 20
+
+for idx, bar in enumerate(bars[1:]):
+    rects.append(ax.plot(index, bar, marker=markers[idx], color=colors[idx]))
+    if bar[0] is 0:
+        label = names[idx+1]
+        x = 0
+        y = 0
+        plt.annotate(
+            "{0}".format(label), 
+            xy = (x, y), xytext = (x_offset, y_offset),
+            textcoords = 'offset points', ha = 'right', va = 'bottom',
+            #bbox = dict(boxstyle = 'round,pad=0.1', fc = 'white', alpha = 0.5),
+            arrowprops = dict(arrowstyle = '->', connectionstyle = 'arc3,rad=0'))
+        x_offset += 20
+        y_offset -= 10
 
 
 plt.rcParams.update({'font.size': 22})    
@@ -57,7 +73,7 @@ ax.set_xlim([0,len(bars[1])])
 ax.set_ylabel(sys.argv[4])
 ax.set_xlabel(sys.argv[3])
 ax.set_title(sys.argv[2])
-ax.set_xticks(index+0.5*len(rects)*width)
+ax.set_xticks(index)
 ax.set_xticklabels(bars[0])
 
 ax.legend( [x[0] for x in rects], names[1:] , prop={'size' :18})
