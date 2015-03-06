@@ -1,0 +1,32 @@
+
+3-card:
+
+final_cfr_walk_clean/output3card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=10--file_output\=1.txt
+
+final_cfr_walk_clean/output3card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=10--file_output\=1--cfr_walk_chance_sampled\=true--chance_samples\=5.txt
+
+final_egt_clean/output3card_leduc_preshuffled--solver\=egt--num_iterations\=1000000--output_iterations\=10--file_output\=1--egt_initial_mu\=1.5--prox_function\=weighted.txt
+
+final_smp_deterministic_clean/output3card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--prox_function\=weighted--smp_alpha\=0.283--smp_kappa\=1000000.txt
+
+final_dayof_stochastic_smp_clean/output3card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=100--file_output\=1--smp_alpha\=4--smp_kappa\=9--utility_function\=chance_sampled--chance_samples\=20.txt 
+
+python ~/github/Plotting/plotTwoColumnInputFiles.py '' 'nodes touched 'regret' 3card.pdf final_cfr_walk_clean/output3card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=10--file_output\=1.txt 'CFR' final_cfr_walk_clean/output3card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=10--file_output\=1--cfr_walk_chance_sampled\=true--chance_samples\=5.txt 'MCCFR' final_egt_clean/output3card_leduc_preshuffled--solver\=egt--num_iterations\=1000000--output_iterations\=10--file_output\=1--egt_initial_mu\=5--prox_function\=weighted.txt 'EGT' final_smp_deterministic_clean/output3card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--prox_function\=weighted--smp_alpha\=0.283--smp_kappa\=1000000.txt 'MP' final_dayof_stochastic_smp_clean/output3card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=1000--file_output\=1--smp_alpha\=4--smp_kappa\=9--utility_function\=chance_sampled--chance_samples\=20.txt 'SMP'
+
+
+5-card:
+
+final_cfr_walk_clean/output5card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=100--file_output\=1.txt
+
+final_cfr_walk_clean/output5card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=100--file_output\=1--cfr_walk_chance_sampled\=true--chance_samples\=5.txt
+
+python ~/github/Plotting/plotTwoColumnInputFiles.py '' '#iterations' 'regret' 5card.pdf final_cfr_walk_clean/output5card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=1000000--output_iterations\=10--file_output\=1.txt 'CFR' final_cfr_walk_clean/output5card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=10--file_output\=1--cfr_walk_chance_sampled\=true--chance_samples\=5.txt 'MCCFR' final_egt_clean/output5card_leduc_preshuffled--solver\=egt--num_iterations\=1000000--output_iterations\=10--file_output\=1--egt_initial_mu\=1.5--prox_function\=weighted.txt 'EGT' final_smp_deterministic_clean/output5card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--smp_alpha\=0.86538--smp_kappa\=1000000.txt 'MP' final_dayof_stochastic_smp_clean/output5card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--smp_alpha\=4--smp_kappa\=5--utility_function\=chance_sampled--chance_samples\=20.txt 'SMP'
+
+
+python ~/github/Plotting/plotTwoColumnInputFiles.py '' '#iterations' 'regret' 8card.pdf final_cfr_walk_clean/output8card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=1000000--output_iterations\=10--file_output\=1.txt 'CFR' final_cfr_walk_clean/output8card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=10--file_output\=1--cfr_walk_chance_sampled\=true--chance_samples\=5.txt 'MCCFR' final_egt_clean/output8card_leduc_preshuffled--solver\=egt--num_iterations\=1000000--output_iterations\=10--file_output\=1--egt_initial_mu\=2--prox_function\=weighted.txt 'EGT' final_smp_deterministic_clean/output8card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--prox_function=weighted--smp_alpha\=0.5--smp_kappa\=1000000.txt 'MP' final_dayof_stochastic_smp_clean/output8card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--prox_function=weighted--smp_alpha\=4--smp_kappa\=1.5--utility_function\=chance_sampled--chance_samples\=20.txt 'SMP'
+
+
+
+
+
+python ~/github/Plotting/plotTwoColumnInputFiles.py '' '#iterations' 'regret' 15card.pdf final_cfr_walk_clean/output15card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=1000000--output_iterations\=10--file_output\=1.txt 'CFR' final_cfr_walk_clean/output15card_leduc_preshuffled--solver\=cfr_walk--num_iterations\=10000000--output_iterations\=10--file_output\=1--cfr_walk_chance_sampled\=true--chance_samples\=5.txt 'MCCFR' final_egt_clean/output15card_leduc_preshuffled--solver\=egt--num_iterations\=1000000--output_iterations\=10--file_output\=1--egt_initial_mu\=2--prox_function\=weighted.txt 'EGT' final_smp_deterministic_clean/output15card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--prox_function=weighted--smp_alpha\=0.5--smp_kappa\=1000000.txt 'MP' final_dayof_stochastic_smp_clean/output15card_leduc_preshuffled--solver\=smp--num_iterations\=1000000--output_iterations\=10--file_output\=1--prox_function=weighted--smp_alpha\=4--smp_kappa\=1.5--utility_function\=chance_sampled--chance_samples\=20.txt 'SMP'

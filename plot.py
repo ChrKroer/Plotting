@@ -10,7 +10,12 @@ x-axis value \t y-value \t y-value ...
 
 import sys
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
+
+matplotlib.rcParams['ps.useafm'] = True
+matplotlib.rcParams['pdf.use14corefonts'] = True
+matplotlib.rcParams['text.usetex'] = True
 
 if len(sys.argv) < 6:
     print "\n\nHow to use:"
@@ -24,10 +29,11 @@ if len(sys.argv) < 6:
 
 
 colors = ['y', 'g', 'r', 'c', 'm', 'b', 'k', 'w']
+linestyles = ['-', '--', '-.', ':', '-', '--', 'k', 'w']
 markers = ['o', '+', '*', 'h', 's', 'D', 'p', 'w']
 width = 0.15       # the width of the bars
 
-    
+
 data = open(sys.argv[1])
 names = data.readline().split('\t')
 bars = [[] for i in  range((len(names))) if names[i].lstrip()]
@@ -43,7 +49,7 @@ for line in data:
 
 
 index = np.arange(len(bars[0]))  # the x locations for the groups
-print index            
+#print index
 fig, ax = plt.subplots()
 rects = []
 
@@ -52,13 +58,13 @@ x_offset = 40
 y_offset = 20
 
 for idx, bar in enumerate(bars[1:]):
-    rects.append(ax.plot(index, bar, marker=markers[idx], color=colors[idx]))
+    rects.append(ax.plot(index, bar, marker=markers[idx], color=colors[idx], ls=linestyles[idx]))
     if bar[0] is 0:
         label = names[idx+1]
         x = 0
         y = 0
         plt.annotate(
-            "{0}".format(label), 
+            "{0}".format(label),
             xy = (x, y), xytext = (x_offset, y_offset),
             textcoords = 'offset points', ha = 'right', va = 'bottom',
             #bbox = dict(boxstyle = 'round,pad=0.1', fc = 'white', alpha = 0.5),
@@ -67,7 +73,7 @@ for idx, bar in enumerate(bars[1:]):
         y_offset -= 10
 
 
-plt.rcParams.update({'font.size': 22})    
+plt.rcParams.update({'font.size': 22})
 #ax.set_ylim(-0.5)
 ax.set_xlim([0,len(bars[1])])
 ax.set_ylabel(sys.argv[4])
