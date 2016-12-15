@@ -12,6 +12,7 @@ import sys
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
+import seaborn
 
 matplotlib.rcParams['ps.useafm'] = True
 matplotlib.rcParams['pdf.use14corefonts'] = True
@@ -49,7 +50,7 @@ linestyles = ['-', '--', '-.', ':', '-', '--', 'k', 'w']
 markers = ['o', '+', '*', 'h', 's', 'D', 'p', 'w']
 width = 0.15       # the width of the bars
 
-    
+
 xdata = open(sys.argv[1])
 #names = data.readline().split('\t')
 bars = [[] for i in range(len(namesOfYValues)+1)]
@@ -113,10 +114,10 @@ ax.legend( [x[0] for x in rects], namesOfYValues , prop={'size' :18}, loc='lower
 
 
 
-    
+
 def setAxLinesBW(ax):
     """
-    Take each Line2D in the axes, ax, and convert the line style to be 
+    Take each Line2D in the axes, ax, and convert the line style to be
     suitable for black and white viewing.
     """
     MARKERSIZE = 5
@@ -155,11 +156,11 @@ def addConstantLines():
         ax.axhline(y=constants[name], marker=markers[idx], color=colors[idx], ls=linestyles[idx])
 
 
-def setImperfectRecallEC15Mode():        
-    addConstantLines()        
+def setImperfectRecallEC15Mode():
+    addConstantLines()
     ax.set_yscale('log')
     ax.set_xscale('log')
-                
+setImperfectRecallEC15Mode()
 
 fname = sys.argv[5]
 plt.tight_layout()

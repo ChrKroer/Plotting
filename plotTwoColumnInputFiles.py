@@ -44,7 +44,7 @@ print "Output file: " + outputFileName
 
 
 colors = ['y', 'g', 'r', 'c', 'm', 'b', 'k', 'w']
-linestyles = ['-', '--', '-.', ':', '-', '--', 'k', 'w']
+linestyles = ['-', '-', '-', ':', '-', '--', 'k', 'w']
 markers = ['o', '+', '*', 'h', 's', 'D', 'p', 'w']
 width = 1.1       # the width of the bars
 
